@@ -1,5 +1,7 @@
 # AngularRedditClone
 
+![Home Page](https://github.com/SaiUpadhyayula/angular-reddit-clone/blob/master/src/assets/reddit-screenshot.PNG)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
