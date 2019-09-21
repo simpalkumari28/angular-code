@@ -11,6 +11,10 @@
     padding:5px;
 }
 
+.postimage{
+    margin-top: 10px;
+}
+
 .postimage > img {
   border-radius: 4px;
   width: 640px;
@@ -19,20 +23,24 @@
 .post-title{
     font-size: 28px;
     font-weight: bold;
+    opacity: 1;
+}
+
+.post-title:hover{    
+    opacity: 0.6;
 }
 
 .subreddit-text{
     font-weight: bold;
 }
 
-.login, .signup, .search, .subscribe{
+.login, .signup, .search, .subscribe, .btnCreatePost, .btnCreateSubreddit{
     background-color: #0079D3;
     border-color: #0079D3;
     color: aliceblue;
     fill: #0079D3;
     border: 1px solid;
     border-radius: 4px;
-    box-sizing: border-box;
     text-align: center;
     letter-spacing: 1px;
     text-decoration: none;
@@ -43,6 +51,17 @@
     text-transform: uppercase;
     padding: 3px 16px;    
     opacity: 1;
+}
+
+.btnCreatePost, .btnCreateSubreddit{
+    width: 288px;
+    height: 34px;
+}
+
+.btnCreateSubreddit{
+    margin-top: 5px;
+    color: #0079D3;
+    background-color: transparent;
 }
 
 .login:hover, .signup:hover, .search:hover, .subscribe:hover{
@@ -61,7 +80,8 @@
     background-color: #ffffff;
 }
 .upvote,.downvote {
-    cursor: pointer;      
+    cursor: pointer;
+    border-radius: 2px solid;        
 }
 .upvote:hover {
     color: green;
@@ -70,7 +90,7 @@
     color: red;
 }
 
-.createpost{
+.sidebar, .sidebar-view-subreddit{
     width: 312px;
     height: 242px;
     --post-line-color: #ccc;    
@@ -84,6 +104,10 @@
     padding:5px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.sidebar-view-subreddit{
+    height: 280px;
 }
 
 .votecount{
@@ -100,4 +124,8 @@
 
 .postname{
     text-decoration: none;
+}
+
+.post-text{
+    margin-top: 10px;
 }

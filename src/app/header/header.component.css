@@ -79,3 +79,7 @@ header{
     max-height: 24px;
     max-width: 24px;
 }
+
+.subreddit-info{
+    margin-top: 5px;
+}
