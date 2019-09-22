@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<hr />
-			<div class="posts-container col-md-9">
+			<div class="col-md-9">
 				<div class="row post">
 					<div class="col-md-1">
 						<div class="d-flex flex-column votebox">
@@ -17,10 +17,9 @@
 					</div>
 					<div class="col-md-11">
 						<span class="subreddit-info">
-							<span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
-							<span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
-							<span> . 5 hours ago</span>
-							<a class="float-right subscribe mr-2" href="">+ Join</a>
+							<span class="subreddit-text"><a class="posturl" routerLink="">/sr/promote-your-content</a></span>
+							<span> . Posted by <a class="username" routerLink="">Sai Upadhyayula</a></span>
+							<span> . 5 hours ago</span>							
 						</span>
 						<hr />
 						<div class="post-title">
@@ -37,6 +36,13 @@
 								Angular tutorial
 								video.</p>
 						</div>
+						<hr/>
+						<span>
+							<a class="btnCommments" role="button">
+								<fa-icon [icon]="faComments"></fa-icon>
+								Comments(8)
+							</a>
+						</span>
 					</div>
 				</div>
 				<div class="row post">
@@ -55,8 +61,7 @@
 						<span>
 							<span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
 							<span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
-							<span> . 5 hours ago</span>
-							<a class="float-right subscribe mr-2" href="">+ Join</a>
+							<span> . 5 hours ago</span>							
 						</span>
 						<hr />
 						<div class="post-title">
@@ -72,6 +77,13 @@
 									src="https://i0.wp.com/programmingtechie.com/wp-content/uploads/2019/09/Build-a-Blog-Part-2.png?w=1920&ssl=1">
 							</div>
 						</div>
+						<hr/>
+						<span>
+							<a class="btnCommments" role="button">
+								<fa-icon [icon]="faComments"></fa-icon>
+								Comments(8)
+							</a>
+						</span>
 					</div>
 				</div>
 				<div class="row post">
@@ -90,8 +102,7 @@
 						<span>
 							<span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
 							<span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
-							<span> . 5 hours ago</span>
-							<a class="float-right subscribe mr-2" href="">+ Join</a>
+							<span> . 5 hours ago</span>							
 						</span>
 						<hr />
 						<div class="post-title">
@@ -103,56 +114,20 @@
 							<p>This is shameless self promotion of my Build a Blog with Springboot and Angular tutorial
 								video.</p>
 						</div>
+						<hr/>
+						<span>
+							<a class="btnCommments" role="button">
+								<fa-icon [icon]="faComments"></fa-icon>
+								Comments(8)
+							</a>
+						</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="sidebar">
-					<img src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png">
-					<div style="text-align: center; font-size: 1em">Welcome to Springit home page. Come here to
-						check in with your favorite subreddits.</div>
-					<div style="text-align: center">
-						<button class="btnCreatePost">Create Post</button>
-					</div>
-					<div style="text-align: center">
-						<button class="btnCreateSubreddit">Create Subreddit</button>
-					</div>
-				</div>
-				<div class="sidebar-view-subreddit">
-					<div style="color: black; font-weight: bold">Browse Subreddits</div>
-					<hr />
-					<span>
-						<span class="subreddit-text"><a href="">/sr/promote-your-content</a></span>
-						<a class="float-right subscribe mr-2" href="">Join</a>
-					</span>
-					<hr />
-					<span>
-						<span class="subreddit-text"><a href="">/sr/introduction</a></span>
-						<a class="float-right subscribe mr-2" href="">Join</a>
-					</span>
-					<hr />
-					<span>
-						<span class="subreddit-text"><a href="">/sr/funfacts</a></span>
-						<a class="float-right subscribe mr-2" href="">Join</a>
-					</span>
-					<hr />
-					<div style="text-align: center">
-						<a style="font-weight: bold" href="">View All</a>
-					</div>
-				</div>
-				<div class="about">
-					<ul style="color: black; font-weight: bold">
-						<li>Created by - Sai Upadhyayula</li>
-						<li>Check out my website - <a href="http://programmingtechie.com">ProgrammingTechie</a><br />
-						</li>
-						<li>Check out my <a
-								href="https://www.youtube.com/channel/UCD20RZV_WHQImisCW2QZwDw">YoutubeChannel</a><br />
-						</li>
-						<li>Source Code - <a href="https://github.com/SaiUpadhyayula/spring-reddit-clone">here</a><br />
-						</li>
-						<li>Icons taken from <a href="https://www.reddit.com/">Reddit</a></li>
-					</ul>
-				</div>
+				<sidebar></sidebar>				
+				<sidebar-view-subreddit></sidebar-view-subreddit>				
+				<about></about>
 			</div>
 		</div>
 	</div>

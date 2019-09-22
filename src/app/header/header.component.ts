@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from '../auth/login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   faUser = faUser;
-  constructor() { }
+
+  constructor(private modalService: NgbModal) {}  
 
   ngOnInit() {
   }
 
+  open() {
+    this.modalService.open(LoginComponent);    
+  }
 }

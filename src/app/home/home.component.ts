@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,9 @@ export class HomeComponent implements OnInit {
 
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  faComments = faComments;
   constructor() { }
 
   ngOnInit() {
   }
-
 }

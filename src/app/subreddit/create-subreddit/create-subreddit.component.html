@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="createpost-container">
+            <form class="post-form">
+                <div class="form-group">
+                    <div class="createsubreddit-heading">Create Subreddit</div>
+                    <hr />
+                    <input type="text" class="form-control" style="margin-top: 5px" placeholder="Title">
+                    <textarea type="text" style="width: 100%; margin-top: 5px" placeholder="Description"></textarea>
+                    <div>
+                        <div style="margin-top: 5px" class="float-right">
+                            <button (click)="discardPost()" class="btnCreateSubreddit">Discard</button>
+                            <button (click)="submitPost()" class="btnCreatePost">Post</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <guidelines></guidelines>
+            <about></about>>
+        </div>
+    </div>
+</div>
