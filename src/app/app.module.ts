@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './post/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +20,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { SidebarViewSubredditComponent } from './shared/sidebar-view-subreddit/sidebar-view-subreddit.component';
 import { AboutComponent } from './shared/about/about.component';
 import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
     ]),
     FontAwesomeModule,
     NgbModule,
-    EditorModule
+    EditorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
