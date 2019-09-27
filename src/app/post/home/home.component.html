@@ -17,34 +17,34 @@
 					</div>
 					<div class="col-md-11">
 						<span class="subreddit-info">
-							<span class="subreddit-text"><a class="posturl" routerLink="">{{post.subredditName}}</a></span>
+							<span class="subreddit-text"><a class="posturl"
+									routerLink="">{{post.subredditName}}</a></span>
 							<span> . Posted by <a class="username" routerLink="">{{post.userName}}</a></span>
-							<span> . 5 hours ago</span>							
+							<span> . 5 hours ago</span>
 						</span>
 						<hr />
 						<div class="post-title">
-							<a class="postname"
-								href="{{post.url}}">{{post.postName}}</a>
+							<a class="postname" href="{{post.url}}">{{post.postName}}</a>
 						</div>
 						<div>
-							<!-- <div class="postimage">
-								<img [src]="post.url.image" />
-							</div> -->
 							<p class="post-text">{{post.description}}</p>
 						</div>
-						<hr/>
+						<hr />
 						<span>
 							<a class="btnCommments" role="button">
 								<fa-icon [icon]="faComments"></fa-icon>
 								Comments({{post.commentNum}})
 							</a>
+							<button class="login" (click)="goToPost(post.id)">
+								Read Post
+							</button>
 						</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<sidebar></sidebar>				
-				<sidebar-view-subreddit></sidebar-view-subreddit>				
+				<sidebar></sidebar>
+				<sidebar-view-subreddit></sidebar-view-subreddit>
 				<about></about>
 			</div>
 		</div>

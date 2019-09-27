@@ -1,6 +1,6 @@
 <div class="reddit-body">
     <div class="row banner">
-        <div class="heading">            
+        <div class="heading">
             <span class="text">Posts in /r/promote-your-content</span>
         </div>
     </div>
@@ -8,13 +8,13 @@
         <div class="row">
             <hr />
             <div class="posts-container col-md-9">
-                <div class="row post">
+                <div class="row post" *ngFor="let post of posts">
                     <div class="col-md-1">
                         <div class="d-flex flex-column votebox">
                             <div class="p-2">
                                 <fa-icon class="upvote" [icon]="faArrowUp"></fa-icon>
                             </div>
-                            <div class="p-2 votecount">5</div>
+                            <div class="p-2 votecount">{{post.votesNum}}</div>
                             <div class="p-2">
                                 <fa-icon class="downvote" [icon]="faArrowDown"></fa-icon>
                             </div>
@@ -22,164 +22,32 @@
                     </div>
                     <div class="col-md-11">
                         <span class="subreddit-info">
-                            <span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
-                            <span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
+                            <span class="subreddit-text"><a class="posturl"
+                                    routerLink="">{{post.subredditName}}</a></span>
+                            <span> . Posted by <a class="username" routerLink="">{{post.userName}}</a></span>
                             <span> . 5 hours ago</span>
-                            <a class="float-right subscribe mr-2" href="">+ Join</a>
                         </span>
                         <hr />
                         <div class="post-title">
-                            <a class="postname"
-                                href="https://programmingtechie.com/2019/03/17/how-to-build-a-simple-blog-application-using-spring-boot-and-angular/">This
-                                is my first Post</a>
+                            <a class="postname" href="{{post.url}}">{{post.postName}}</a>
                         </div>
                         <div>
-                            <div class="postimage">
-                                <img
-                                    src="https://i1.wp.com/programmingtechie.com/wp-content/uploads/2019/09/Build-a-Blog-Part-1.png?w=1920&ssl=1">
-                            </div>
-                            <p class="post-text">This is shameless self promotion of my Build a Blog with Springboot and
-                                Angular tutorial
-                                video.</p>
+                            <p class="post-text">{{post.description}}</p>
                         </div>
                         <hr />
                         <span>
                             <a class="btnCommments" role="button">
                                 <fa-icon [icon]="faComments"></fa-icon>
-                                Comments(8)
-                            </a>
-                        </span>
-                    </div>
-                </div>
-                <div class="row post">
-                    <div class="col-md-1">
-                        <div class="d-flex flex-column votebox">
-                            <div class="p-2">
-                                <fa-icon class="upvote" [icon]="faArrowUp"></fa-icon>
-                            </div>
-                            <div class="p-2 votecount">5</div>
-                            <div class="p-2">
-                                <fa-icon class="downvote" [icon]="faArrowDown"></fa-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <span>
-                            <span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
-                            <span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
-                            <span> . 5 hours ago</span>
-                            <a class="float-right subscribe mr-2" href="">+ Join</a>
-                        </span>
-                        <hr />
-                        <div class="post-title">
-                            <a class="postname"
-                                href="https://programmingtechie.com/2019/03/17/how-to-build-a-simple-blog-application-using-spring-boot-and-angular/">This
-                                is my second Post</a>
-                        </div>
-                        <div>
-                            <p>This is shameless self promotion of my Build a Blog with Springboot and Angular tutorial
-                                video.</p>
-                            <div class="postimage">
-                                <img
-                                    src="https://i0.wp.com/programmingtechie.com/wp-content/uploads/2019/09/Build-a-Blog-Part-2.png?w=1920&ssl=1">
-                            </div>
-                        </div>
-                        <hr />
-                        <span>
-                            <a class="btnCommments" role="button">
-                                <fa-icon [icon]="faComments"></fa-icon>
-                                Comments(8)
-                            </a>
-                        </span>
-                    </div>
-                </div>
-                <div class="row post">
-                    <div class="col-md-1">
-                        <div class="d-flex flex-column votebox">
-                            <div class="p-2">
-                                <fa-icon class="upvote" [icon]="faArrowUp"></fa-icon>
-                            </div>
-                            <div class="p-2 votecount">5</div>
-                            <div class="p-2">
-                                <fa-icon class="downvote" [icon]="faArrowDown"></fa-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <span>
-                            <span class="subreddit-text"><a class="posturl" href="">/sr/promote-your-content</a></span>
-                            <span> . Posted by <a class="username" href="">Sai Upadhyayula</a></span>
-                            <span> . 5 hours ago</span>
-                            <a class="float-right subscribe mr-2" href="">+ Join</a>
-                        </span>
-                        <hr />
-                        <div class="post-title">
-                            <a class="postname"
-                                href="https://programmingtechie.com/2019/03/17/how-to-build-a-simple-blog-application-using-spring-boot-and-angular/">This
-                                is my Third Post</a>
-                        </div>
-                        <div>
-                            <p>This is shameless self promotion of my Build a Blog with Springboot and Angular tutorial
-                                video.</p>
-                        </div>
-                        <hr />
-                        <span>
-                            <a class="btnCommments" role="button">
-                                <fa-icon [icon]="faComments"></fa-icon>
-                                Comments(8)
+                                Comments({{post.commentNum}})
                             </a>
                         </span>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="sidebar">
-                    <img src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png">
-                    <br/>
-                    <div style="text-align: center; font-size: 1em">Welcome to <b>Promote your Content.</b></div>
-                    <br/>
-                    <div style="text-align: center">
-                        <button class="btnCreatePost">Create Post</button>
-                    </div>
-                    <div style="text-align: center">
-                        <button class="btnCreateSubreddit">Join</button>
-                    </div>
-                </div>
-                <div class="sidebar-view-subreddit">
-                    <div style="color: black; font-weight: bold">Browse Subreddits</div>
-                    <hr />
-                    <span>
-                        <span class="subreddit-text"><a href="">/r/promote-your-content</a></span>
-                        <a class="float-right subscribe mr-2" href="">Joined</a>
-                    </span>
-                    <hr />
-                    <span>
-                        <span class="subreddit-text"><a href="">/r/introduction</a></span>
-                        <a class="float-right subscribe mr-2" href="">Join</a>
-                    </span>
-                    <hr />
-                    <span>
-                        <span class="subreddit-text"><a href="">/r/funfacts</a></span>
-                        <a class="float-right subscribe mr-2" href="">Join</a>
-                    </span>
-                    <hr />
-                    <div style="text-align: center">
-                        <a style="font-weight: bold" href="/subreddits">View All</a>
-                    </div>
-                </div>
-                <div class="about">
-                    <ul style="color: black; font-weight: bold">
-                        <li>Created by - Sai Upadhyayula</li>
-                        <li>Check out my website - <a href="http://programmingtechie.com">ProgrammingTechie</a><br />
-                        </li>
-                        <li>Check out my <a
-                                href="https://www.youtube.com/channel/UCD20RZV_WHQImisCW2QZwDw">YoutubeChannel</a><br />
-                        </li>
-                        <li>Source Code - <a href="https://github.com/SaiUpadhyayula/spring-reddit-clone">here</a><br />
-                        </li>
-                        <li>Icons taken from <a href="https://www.reddit.com/">Reddit</a></li>
-                    </ul>
-                </div>
+                <sidebar></sidebar>
+                <sidebar-view-subreddit></sidebar-view-subreddit>
+                <about></about>
             </div>
         </div>
     </div>

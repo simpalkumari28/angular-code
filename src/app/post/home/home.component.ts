@@ -4,6 +4,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { PostService } from '../post.service';
 import { PostModel } from '../post.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,13 +18,17 @@ export class HomeComponent implements OnInit {
   faComments = faComments;
   posts: PostModel[] = [];
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private router: Router) {
     this.postService.getAllPosts().subscribe(post => {
       this.posts = post;
     })
   }
 
   ngOnInit() {
+  }
+
+  goToPost(id: Number){
+    this.router.navigateByUrl('/view-post/'+id);
   }
 
 }

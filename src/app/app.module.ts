@@ -21,6 +21,8 @@ import { SidebarViewSubredditComponent } from './shared/sidebar-view-subreddit/s
 import { AboutComponent } from './shared/about/about.component';
 import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -49,16 +51,18 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'view-subreddit', component: ViewSubredditComponent },
       { path: 'create-post', component: CreatePostComponent },
       { path: 'create-subreddit', component: CreateSubredditComponent },
-      { path: 'view-post', component: ViewPostComponent },
+      { path: 'view-post/:id', component: ViewPostComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: RegisterComponent }
     ]),
     FontAwesomeModule,
     NgbModule,
     EditorModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

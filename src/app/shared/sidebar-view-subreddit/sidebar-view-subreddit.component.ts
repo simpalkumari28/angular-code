@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SubredditService } from 'src/app/subreddit/subreddit.service';
+import { SubredditModel } from 'src/app/subreddit/subreddit-model';
 
 @Component({
   selector: 'sidebar-view-subreddit',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarViewSubredditComponent implements OnInit {
 
-  constructor() { }
+  subreddits: SubredditModel[];
+  displayViewAll: Boolean;
+
+  constructor(private subredditService: SubredditService) { }
 
   ngOnInit() {
+    this.subredditService.getAllSubreddits().subscribe(subreddit => {
+      if (subreddit.length > 3) {
+          this.subreddits = subreddit.splice(0,2);          
+          this.displayViewAll = true;
+      } else {
+          this.subreddits = subreddit;
+      }
+    })
   }
 
 }

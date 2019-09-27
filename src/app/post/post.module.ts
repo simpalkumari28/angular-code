@@ -1,18 +1,12 @@
-import { NgModule } from "@angular/core";
-import { HomeComponent } from './home/home.component';
-import { ViewPostComponent } from './view-post/view-post.component';
-import { CreatePostComponent } from './create-post/create-post.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+
 
 @NgModule({
-    declarations: [
-        HomeComponent,
-        ViewPostComponent,
-        CreatePostComponent
-    ],
-    imports: [
-        
-    ]
+  declarations: [],
+  imports: [
+    CommonModule
+  ]
 })
-export class PostModule{
-
-}
+export class PostModule { }

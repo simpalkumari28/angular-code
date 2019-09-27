@@ -10,6 +10,10 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
+  getPost(postId: Number): Observable<PostModel> {
+    return this.http.get<PostModel>('http://localhost:8080/api/posts/query/' + postId);
+  }
+
   getAllPosts(): Observable<PostModel[]> {
     return this.http.get<PostModel[]>('http://localhost:8080/api/posts/query/all');
   }
