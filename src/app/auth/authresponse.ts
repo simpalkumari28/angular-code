@@ -1,4 +1,4 @@
 export class AuthResponse {
-    accessToken: string
+    authenticationToken: string
     username: string
 }

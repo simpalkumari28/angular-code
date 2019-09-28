@@ -19,7 +19,7 @@
                         <span class="subreddit-info">
                             <span class="subreddit-text"><a class="posturl" href="">{{post.subredditName}}</a></span>
                             <span> . Posted by <a class="username" href="">{{post.userName}}</a></span>
-                            <span>5 hours ago</span>                            
+                            <span>5 hours ago</span>
                         </span>
                         <hr />
                         <a href="post.url" class="post-title">{{post.postName}}</a>
@@ -33,22 +33,26 @@
                         </span>
                         <hr />
                         <div class="post-comment">
-                            <form (ngSubmit)="postComment()">
+                            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Thoughts?"></textarea>
+                                    <textarea class="form-control" [formControlName]="'text'"
+                                        placeholder="Your Thoughts?"></textarea>
                                 </div>
-                                <button class="login float-right">Comment</button>
+                                <button type="submit" class="login float-right">Comment</button>
                             </form>
                         </div>
                         <div>
                             <div style="margin-top: 60px;">
-                                <div class="comment">
-                                    <div class="username"><a href="/user">ProgrammingTechie</a></div>
-                                    <p>This is super tutorial! Liked and Subscribed to the Channel!!</p>
-                                </div>
-                                <div class="comment">
-                                    <div class="username"><a href="/user">ProgrammingTechie</a></div>
-                                    <p>Thank you!!</p>
+                                <div *ngFor="let comment of comments">
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="/user">{{comment.username}}</a>
+                                        </div>
+                                        <div >
+                                            <p>{{comment.duration}}</p>
+                                        </div>
+                                        <b>{{comment.text}}</b>
+                                    </div>
                                 </div>
                             </div>
                         </div>

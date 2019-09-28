@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { PostModel } from '../post.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CommentPayload } from '../commentpayload';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-view-post',
@@ -11,24 +14,50 @@ import { PostModel } from '../post.model';
 })
 export class ViewPostComponent implements OnInit {
 
+  commentForm: FormGroup;
+  commentPayload: CommentPayload;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   postId: Number;
   post: PostModel;
-  
-  constructor(private activateRoute: ActivatedRoute, private postService: PostService) { }
+  comments: CommentPayload[];
+
+  constructor(private formBuilder: FormBuilder, private activateRoute: ActivatedRoute, private postService: PostService, private router: Router) {
+    this.commentForm = this.formBuilder.group({
+      text: ['', Validators.required]
+    });
+    this.postId = this.activateRoute.snapshot.params['id'];
+    this.commentPayload = {
+      text: '',
+      postId: this.activateRoute.snapshot.params['id']
+    }
+    this.getCommentsForPost();
+  }
 
   ngOnInit() {
-    this.postId = this.activateRoute.snapshot.params['id'];
     this.postService.getPost(this.postId).subscribe(data => {
-        this.post = data;
+      this.post = data;
     }, error => {
-        console.log('Failure ' + error);
+      console.log('Failure ' + error);
     });
   }
 
-  postComment(){
+  postComment() {
+    this.commentPayload.text = this.commentForm.get('text').value;
+    this.postService.postComment(this.commentPayload).subscribe(data => {
+      this.commentForm.get('text').setValue('');
+      this.router.navigateByUrl('/view-post/' + this.postId);
+    }, error => {
+      console.log("Response Failed");
+    })
+  }
 
+  private getCommentsForPost() {
+    this.postService.getAllComments(this.postId).subscribe(comments => {
+      this.comments = comments;
+    }, error => {
+      console.log("Failure " + error);
+    });
   }
 
 }

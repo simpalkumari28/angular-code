@@ -20,9 +20,10 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { SidebarViewSubredditComponent } from './shared/sidebar-view-subreddit/sidebar-view-subreddit.component';
 import { AboutComponent } from './shared/about/about.component';
 import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClientInterceptor } from './http.client.interceptor';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { CookieService } from 'ngx-cookie-service';
       { path: 'view-post/:id', component: ViewPostComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: RegisterComponent }
-    ]),
+    ],{onSameUrlNavigation: "reload"}),
     FontAwesomeModule,
     NgbModule,
     EditorModule,
@@ -62,7 +63,7 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService ],
+  providers: [CookieService,{ provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
