@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterPayload } from '../registerpayload';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   registerPayload: RegisterPayload;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.registerPayload = {
       email: '',
       username: '',
@@ -35,7 +36,7 @@ export class RegisterComponent implements OnInit {
     this.registerPayload.password = this.registerForm.get('password').value;
 
     this.authService.register(this.registerPayload).subscribe(data => {
-
+        this.router.navigateByUrl('/login');
     }, error => {
 
     });
