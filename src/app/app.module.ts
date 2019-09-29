@@ -24,6 +24,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientInterceptor } from './http.client.interceptor';
+import { PostComponent } from './shared/post/post.component';
+import { VotebuttonComponent } from './shared/votebutton/votebutton.component';
+import { UserComponent } from './user/user.component';
+import { CommentComponent } from './shared/comment/comment.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { HttpClientInterceptor } from './http.client.interceptor';
     SidebarComponent,
     SidebarViewSubredditComponent,
     AboutComponent,
-    GuidelinesComponent
+    GuidelinesComponent,
+    PostComponent,
+    VotebuttonComponent,
+    UserComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +61,11 @@ import { HttpClientInterceptor } from './http.client.interceptor';
       { path: 'create-post', component: CreatePostComponent },
       { path: 'create-subreddit', component: CreateSubredditComponent },
       { path: 'view-post/:id', component: ViewPostComponent },
+      { path: 'view-subreddit/:id', component: ViewSubredditComponent },
+      { path: 'user/:name', component: UserComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: RegisterComponent }
-    ],{onSameUrlNavigation: "reload"}),
+    ], { onSameUrlNavigation: "reload" }),
     FontAwesomeModule,
     NgbModule,
     EditorModule,
@@ -63,7 +73,7 @@ import { HttpClientInterceptor } from './http.client.interceptor';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService,{ provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true } ],
+  providers: [CookieService, { provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

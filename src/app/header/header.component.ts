@@ -11,22 +11,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   faUser = faUser;
   isLoggedIn: Boolean;
   username: string;
 
-  constructor(private router: Router, private authService: AuthService) { 
-    this.username = this.authService.getUserName();
-  }  
-
-  ngOnInit() {        
-    this.authService.isLoggedIn().subscribe(flag => {
-      this.isLoggedIn = flag;      
-    });   
+  constructor(private router: Router, private authService: AuthService) {
+    this.authService.loggedIn.subscribe(flag => this.isLoggedIn = flag);
+    this.authService.username.subscribe(name => this.username = name);
   }
 
-  logout(){
-    this.authService.logout();    
-    this.router.navigateByUrl('');
+  ngOnInit() {
+    this.isLoggedIn = this.authService.isLoggedIn();
+    this.username = this.authService.getUserName();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('').then(() => {
+      window.location.reload();
+    })
+  }
+
+  gotoProfile() {
+    this.router.navigateByUrl('/user/' + this.username);
   }
 }

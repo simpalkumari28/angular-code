@@ -27,8 +27,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToPost(id: Number){
-    this.router.navigateByUrl('/view-post/'+id);
-  }
-
 }

@@ -5,9 +5,7 @@
             <div class="posts-container col-md-9">
                 <h2>List of Subreddits</h2>
                 <ul>
-                    <li><a routerLink="/view-subreddit">/r/promote-your-content</a></li>
-                    <li><a routerLink="/view-subreddit">/r/introduction</a></li>
-                    <li><a routerLink="/view-subreddit">/r/funfacts</a></li>
+                    <li *ngFor="let subreddit of subreddits"><a routerLink="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a></li>
                 </ul>
             </div>
             <div class="col-md-3">

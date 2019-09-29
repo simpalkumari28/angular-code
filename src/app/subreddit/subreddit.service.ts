@@ -7,6 +7,9 @@ import { SubredditModel } from './subreddit-model';
   providedIn: 'root'
 })
 export class SubredditService {
+  getSubreddit(subredditId: Number) {
+    return this.http.get<SubredditModel>('http://localhost:8080/api/subreddit/query/'+subredditId);
+  }
 
   constructor(private http: HttpClient) { }
 

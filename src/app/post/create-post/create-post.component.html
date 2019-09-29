@@ -2,18 +2,17 @@
     <div class="row">
         <hr />
         <div class="createpost-container col-md-9">
-            <form class="post-form">
+            <form class="post-form" [formGroup]="createPostForm" (ngSubmit)="createPost()">
                 <div class="form-group">
                     <div class="createpost-heading">Create Post</div>
                     <hr />
-                    <input type="text" class="form-control" style="margin-top: 5px" placeholder="Title">
-                    <select class="form-control" style="margin-top: 10px">
+                    <input type="text" [formControlName]="'postName'" class="form-control" style="margin-top: 5px" placeholder="Title">
+                    <input type="text" class="form-control" [formControlName]="'url'" style="margin-top: 5px" placeholder="URL">
+                    <select class="form-control" style="margin-top: 10px" [formControlName]="'subredditName'">
                         <option value="" selected disabled>Select Subreddit</option>
-                        <option>/r/promote-your-content</option>
-                        <option>/r/first-post</option>
-                        <option>/r/funfacts</option>
+                        <option *ngFor="let subreddit of subreddits">{{subreddit.name}}</option>                        
                     </select>
-                    <editor style="margin-top: 10px" apiKey="test" [init]="{plugins: 'link'}"></editor>
+                    <editor [formControlName]="'description'" style="margin-top: 10px" apiKey="test" [init]="{plugins: 'link'}"></editor>
                     <span>
                         <div class="form-check float-left" style="margin-top: 10px">
                             <input class="form-check-input" type="checkbox" value="" id="commentCheckBox" checked>
@@ -23,7 +22,7 @@
                         </div>
                         <div style="margin-top: 5px" class="float-right">
                             <button (click)="discardPost()" class="btnCreateSubreddit">Discard</button>
-                            <button (click)="submitPost()" class="btnCreatePost">Post</button>
+                            <button class="btnCreatePost">Post</button>
                         </div>
                     </span>
                 </div>

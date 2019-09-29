@@ -1,49 +1,13 @@
 <div class="reddit-body">
     <div class="row banner">
         <div class="heading">
-            <span class="text">Posts in /r/promote-your-content</span>
+            <span class="text">Posts in {{subredditName}}</span>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <hr />
-            <div class="posts-container col-md-9">
-                <div class="row post" *ngFor="let post of posts">
-                    <div class="col-md-1">
-                        <div class="d-flex flex-column votebox">
-                            <div class="p-2">
-                                <fa-icon class="upvote" [icon]="faArrowUp"></fa-icon>
-                            </div>
-                            <div class="p-2 votecount">{{post.votesNum}}</div>
-                            <div class="p-2">
-                                <fa-icon class="downvote" [icon]="faArrowDown"></fa-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <span class="subreddit-info">
-                            <span class="subreddit-text"><a class="posturl"
-                                    routerLink="">{{post.subredditName}}</a></span>
-                            <span> . Posted by <a class="username" routerLink="">{{post.userName}}</a></span>
-                            <span> . 5 hours ago</span>
-                        </span>
-                        <hr />
-                        <div class="post-title">
-                            <a class="postname" href="{{post.url}}">{{post.postName}}</a>
-                        </div>
-                        <div>
-                            <p class="post-text">{{post.description}}</p>
-                        </div>
-                        <hr />
-                        <span>
-                            <a class="btnCommments" role="button">
-                                <fa-icon [icon]="faComments"></fa-icon>
-                                Comments({{post.commentNum}})
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <post class="col-md-9" [data]="posts"></post>
             <div class="col-md-3">
                 <sidebar></sidebar>
                 <sidebar-view-subreddit></sidebar-view-subreddit>

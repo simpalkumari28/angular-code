@@ -9,4 +9,5 @@ export class PostModel {
     downVote: boolean;
     subredditName: String;
     commentNum: Number;
+    duration: String;
 }
